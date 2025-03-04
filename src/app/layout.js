@@ -2,6 +2,8 @@ import localFont from "next/font/local";
 import "./globals.css";
 import Header from './components/Header';
 import { ClerkProvider } from '@clerk/nextjs'
+import ThemeCom from './components/ThemeCom';
+import { ThemeProvider } from "next-themes";
  // import FooterComponent from "./components/Footer";
 
 const geistSans = localFont({
@@ -23,17 +25,19 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <ClerkProvider>
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+        <ThemeProvider>
+          <ThemeCom>
         <Header />
         
         {children}
         
          {/* Footer - this will be shown on every page */}
-        
-         
+         </ThemeCom>
+         </ThemeProvider>
       </body>
     </html>
     </ClerkProvider>
