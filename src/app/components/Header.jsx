@@ -37,8 +37,8 @@ export default function Header() {
         href='/'
         className='self-center whitespace-nowrap text-sm sm:text-xl font-semibold dark:text-white'
       >
-        <span className='px-2 py-1 bg-gradient-to-r from-blue-300 via-blue-400 to-blue-600 rounded-lg text-'>
-          Experince Book
+        <span className='px-2 py-1 bg-gradient-to-r from-orange-500 via-orange-600 to-orange-700 rounded-lg text-white'>
+          Experience Book
         </span>
         
       </Link>
@@ -56,11 +56,11 @@ export default function Header() {
         <AiOutlineSearch />
       </Button>
       <div className='flex gap-2 md:order-2'>
-      <Button 
-      className='w-12 h-10 hidden sm:inline' 
-      color='gray'
-      pill 
-      onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}
+        <Button
+          className='w-12 h-10 hidden sm:inline'
+          color='gray'
+          pill
+          onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}
         >
           {theme === 'light' ? <FaSun /> : <FaMoon />}
         </Button>
@@ -73,28 +73,34 @@ export default function Header() {
           />
         </SignedIn>
         <SignedOut>
-          <Link href='/sign-in'>
-            <Button gradientDuoTone='purpleToBlue' outline>
-              Sign In
-            </Button>
-          </Link>
+        <Link href="/sign-in">
+        <Button gradientDuoTone="purpleToBlue" outline>
+        Sign-in
+        </Button>
+        </Link>
         </SignedOut>
         <Navbar.Toggle />
       </div>
       <Navbar.Collapse>
         <Link href='/'>
           <Navbar.Link active={path === '/'} as={'div'}>
-            Home
+          <span className='px-2 py-1 bg-gradient-to-r from-orange-500 via-orange-600 to-orange-700 rounded-lg text-white'>
+          Home
+        </span>
           </Navbar.Link>
         </Link>
         <Link href='/about'>
           <Navbar.Link active={path === '/about'} as={'div'}>
-            About
+          <span className='px-2 py-1 bg-gradient-to-r from-orange-500 via-orange-600 to-orange-700 rounded-lg text-white'>
+          About
+        </span>
           </Navbar.Link>
         </Link>
         <Link href='/projects'>
           <Navbar.Link active={path === '/projects'} as={'div'}>
-            Projects
+          <span className='px-2 py-1 bg-gradient-to-r from-orange-500 via-orange-600 to-orange-700 rounded-lg text-white'>
+          Projects
+        </span>
           </Navbar.Link>
         </Link>
       </Navbar.Collapse>
