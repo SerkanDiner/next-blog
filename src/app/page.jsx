@@ -6,6 +6,8 @@ import React from 'react'
 
 export default function Home() {
   return (
+
+    
     <div className="h-screen flex items-center justify-center">
     <Card className="max-w-sm">
       <h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
@@ -27,6 +29,9 @@ export default function Home() {
         </svg>
       </Button>
     </Card>
+    
     </div>
+    
+   
   );
 }
