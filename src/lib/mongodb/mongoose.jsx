@@ -12,7 +12,7 @@ if (initialized) {
 try{
 await mongoose.connect(process.env.MONGODB_URI, {
     dbName: 'next-blog',
-    userNewUrlParser: true,
+    useNewUrlParser: true,
     useUnifiedTopology: true,
 } );
 
