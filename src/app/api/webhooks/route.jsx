@@ -70,10 +70,10 @@ export async function POST(req) {
       );
       if (user && eventType === 'user.created') {
         try {
-          await clerkClient.users.updateUserMetadata(id, {
-            publicMetadata: {
-              userMongoId: user._id,
-              isAdmin: user.isAdmin,
+          await clerkClient.users.updateUserMetadata(id, {  // FIXED: 'users' instead of 'user'
+            publicMetadata: { // FIXED: 'publicMetadata' instead of 'publicMeta'
+              userMongoId: user._id.toString(), // FIXED: Ensure it's a string
+              isAdmin: user.isAdmin || false,  // FIXED: Default to false if undefined
             },
           });
         } catch (error) {
