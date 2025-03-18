@@ -1,37 +1,56 @@
-"use client";
+import Link from 'next/link';
+import CallToAction from './components/CallToAction';
+import RecentPosts from './components/RecentPosts';
 
-import { Button, Card } from "flowbite-react";
-import React from 'react'
-
-
-export default function Home() {
+export default async function Home() {
+  let posts = null;
+  try {
+    const result = await fetch(process.env.URL + '/api/post/get', {
+      method: 'POST',
+      body: JSON.stringify({ limit: 9, order: 'desc' }),
+      cache: 'no-store',
+    });
+    const data = await result.json();
+    posts = data.posts;
+  } catch (error) {
+    console.log('Error getting post:', error);
+  }
   return (
-
-    
-    <div className="h-screen flex items-center justify-center">
-    <Card className="max-w-sm">
-      <h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-        Experience Book
-      </h5>
-      <p className="font-normal text-gray-700 dark:text-gray-400">
-      “Unlock the power of shared experiences.
-       Experience Book connects you with real stories and valuable lessons from professionals across industries — 
-       because one story can change your life.”
-      </p>
-      <Button>
-        Read more
-        <svg className="-mr-1 ml-2 h-4 w-4" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-          <path
-            fillRule="evenodd"
-            d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
-            clipRule="evenodd"
-          />
-        </svg>
-      </Button>
-    </Card>
-    
+    <div className='flex flex-col justify-center items-center'>
+      <div className='flex flex-col gap-6 p-28 px-3 max-w-6xl mx-auto '>
+        <h1 className='text-3xl font-bold lg:text-6xl'>Welcome to my Blog</h1>
+        <p className='text-gray-500 text-sm sm:text-base'>
+          Discover a variety of articles and tutorials on topics such as web
+          development, software engineering, and programming languages, all
+          brought to you through a blog built with Next.js and{' '}
+          <a
+            href='https://go.clerk.com/fgJHKlt'
+            className='text-teal-500 hover:underline'
+            target='_blank'
+          >
+            Clerk
+          </a>
+          .
+        </p>
+        <Link
+          href='/search'
+          className='text-xs sm:text-sm text-teal-500 font-bold hover:underline'
+        >
+          View all posts
+        </Link>
+      </div>
+      <div className='p-3 bg-amber-100 dark:bg-slate-700'>
+      <CallToAction />
+      </div>
+      <div className='p-3 flex flex-col gap-8 py-7'>
+        <RecentPosts limit={9} />
+        <Link
+          href={'/search?category=null'}
+          className='text-lg text-teal-500 hover:underline text-center'
+        >
+          View all posts
+        </Link>
+      </div>
     </div>
-    
-   
   );
 }
