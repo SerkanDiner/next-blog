@@ -4,6 +4,7 @@ import Header from './components/Header';
 import { ClerkProvider } from '@clerk/nextjs'
 import ThemeCom from './components/ThemeCom';
 import { ThemeProvider } from "next-themes";
+import { Analytics } from "@vercel/analytics/react"; // Import Vercel Analytics
 
 
 
@@ -43,7 +44,7 @@ export default function RootLayout({ children }) {
         <Header />
         
         {children}
-        
+        <Analytics /> {/* Vercel Analytics tracking globally */}
          {/* Footer - this will be shown on every page */}
          
          </ThemeCom>
