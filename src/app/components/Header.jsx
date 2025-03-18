@@ -37,7 +37,7 @@ export default function Header() {
         href='/'
         className='self-center whitespace-nowrap text-sm sm:text-xl font-semibold dark:text-white'
       >
-        <span className='px-2 py-1 bg-gradient-to-r from-orange-500 via-orange-600 to-orange-700 rounded-lg text-white'>
+        <span className='px-2 py-1 bg-orange-400 rounded-lg text-white'>
           Experience Book
         </span>
         
@@ -74,7 +74,7 @@ export default function Header() {
         </SignedIn>
         <SignedOut>
         <Link href="/sign-in">
-        <Button gradientDuoTone="purpleToBlue" outline>
+        <Button className='px-2 py-1 bg- bg-orange-400 rounded-lg text-white'>
         Sign-in
         </Button>
         </Link>
@@ -84,21 +84,21 @@ export default function Header() {
       <Navbar.Collapse>
         <Link href='/'>
           <Navbar.Link active={path === '/'} as={'div'}>
-          <span className='px-2 py-1 bg-gradient-to-r from-orange-500 via-orange-600 to-orange-700 rounded-lg text-white'>
+          <span className='px-2 py-1 bg- bg-orange-400 rounded-lg text-white'>
           Home
         </span>
           </Navbar.Link>
         </Link>
         <Link href='/about'>
           <Navbar.Link active={path === '/about'} as={'div'}>
-          <span className='px-2 py-1 bg-gradient-to-r from-orange-500 via-orange-600 to-orange-700 rounded-lg text-white'>
+          <span className='px-2 py-1 bg- bg-orange-400 rounded-lg text-white'>
           About
         </span>
           </Navbar.Link>
         </Link>
         <Link href='/projects'>
           <Navbar.Link active={path === '/projects'} as={'div'}>
-          <span className='px-2 py-1 bg-gradient-to-r from-orange-500 via-orange-600 to-orange-700 rounded-lg text-white'>
+          <span className='px-2 py-1 bg- bg-orange-400 rounded-lg text-white'>
           Projects
         </span>
           </Navbar.Link>
