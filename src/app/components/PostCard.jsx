@@ -16,7 +16,7 @@ export default function PostCard({ post }) {
           href={`/post/${post.slug}`}
            className='z-10 group-hover:bottom-0 absolute bottom-[-200px] left-0 right-0 border border-orange-400 text-orange-400 hover:bg-orange-400 hover:text-white transition-all duration-300 text-center py-2 rounded-md !rounded-tl-none m-2'
         >
-          Read article
+          See Profile
         </Link>
       </div>
     </div>

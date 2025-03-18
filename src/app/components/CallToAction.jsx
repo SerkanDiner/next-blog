@@ -16,7 +16,7 @@ export default function CallToAction() {
             </p>
             <Button className='flex flex-col sm:flex-row p-3 border  bg-orange-400 justify-center items-center rounded-tl-3xl rounded-br-3xl text-center  text-white hover:bg-orange-400 hover:text-white transition-all duration-300'>
                 <a href="https://www.met.police.uk/police-forces/metropolitan-police/areas/c/careers/" target='_blank' rel='noopener noreferrer'>
-                    Learn More
+                    Read More
                 </a>
             </Button>
         </div>

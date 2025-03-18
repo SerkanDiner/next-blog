@@ -133,10 +133,16 @@ export default function CreatePostPage() {
             
             
             >
-              <option value='uncategorized'>Select a category </option>
-              <option value='javascript'>JavaScript</option>
-              <option value='reactjs'>React.js</option>
-              <option value='nextjs'>Next.js</option>
+              <option value='informationTechnology'>Information Technology </option>
+              <option value='lawEnforcement'>Law Enforcement</option>
+              <option value='engineering'>Engineering</option>
+              <option value='finance'>Finance and Banking</option>
+              <option value='healtcare'>Healthcare</option>
+              <option value='education'>Education and Teaching</option>
+              <option value='aviation'>Aviation and Aerospace</option>
+              <option value='entrepreneur'>Entrepreneurship</option>
+              <option value='media'>Creative and Media Industury</option>
+              <option value='sports'>Sports and Fitness</option>
             </Select>
           </div>
           <div className='flex gap-4 items-center justify-between border-4 border-teal-500 border-dotted p-3'>
