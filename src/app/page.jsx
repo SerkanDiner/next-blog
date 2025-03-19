@@ -30,14 +30,14 @@ export default async function Home() {
           href='/search'
           className='text-xs sm:text-sm text-orange-400 font-bold hover:underline'
         >
-          View All Profiles
+          View All Experiences
         </Link>
       </div>
       <div className='p-3 bg-white dark:bg-gray-900'>
       <CallToAction />
       </div>
       <div className='p-3 flex flex-col gap-8 py-7'>
-        <RecentPosts limit={8}/>
+        <RecentPosts limit={4}/>
         <Link
           href={'/search?category=null'}
           className='text-lg text-orange-400 hover:underline text-center'

@@ -3,6 +3,7 @@ import "./globals.css";
 import Header from './components/Header';
 import { ClerkProvider } from '@clerk/nextjs'
 import ThemeCom from './components/ThemeCom';
+import Footer from './components/Footer';
 import { ThemeProvider } from "next-themes";
 import { Analytics } from "@vercel/analytics/react"; // Import Vercel Analytics
 import { SpeedInsights } from "@vercel/speed-insights/next"; // Import Vercel Speed Insights
@@ -47,7 +48,7 @@ export default function RootLayout({ children }) {
         {children}
         <Analytics /> {/* Vercel Analytics tracking globally */}
         <SpeedInsights /> {/* Vercel Speed Insights for performance tracking */}
-         {/* Footer - this will be shown on every page */}
+         <Footer/>{/* Footer - this will be shown on every page */}
          
          </ThemeCom>
          </ThemeProvider>
