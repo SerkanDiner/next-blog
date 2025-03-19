@@ -1,4 +1,4 @@
-import mongoose from 'mongoose';
+import mongoose from 'mongoose.jsx';
 const postSchema = new mongoose.Schema(
   {
     userId: {
