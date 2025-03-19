@@ -6,7 +6,7 @@ import ThemeCom from './components/ThemeCom';
 import Footer from './components/Footer';
 import { ThemeProvider } from "next-themes";
 import { Analytics } from "@vercel/analytics/react"; // Import Vercel Analytics
-import { SpeedInsights } from "@vercel/speed-insights/next"; // Import Vercel Speed Insights
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 
 
