@@ -71,7 +71,8 @@ export default function DashSidebar() {
 
 
             {user?.publicMetadata?.isAdmin && (
-            <Link href='/dashboard/create-post'>
+            <Link href='/dashboard?tab=create-post'> 
+
               <Sidebar.Item
                 active={tab === 'create-post'}
                 icon={HiDocumentText}
