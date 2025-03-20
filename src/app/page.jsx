@@ -31,21 +31,21 @@ export default async function Home() {
         role: "UX Designer & Educator",
         image: "https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/roberta-casas.png",
         title: "Structured & Insightful Learning",
-        quote: "Experience Book bridges the gap between theoretical knowledge and real-life experience. It’s a must-have resource for anyone looking to make informed career decisions."
+        quote: "Experience Book bridges the gap between theoretical knowledge and real-life experience. It&apos;s a must-have resource for anyone looking to make informed career decisions."
       },
       {
         name: "Jese Leos",
         role: "Software Engineer & Mentor",
         image: "https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/jese-leos.png",
         title: "Practical Knowledge at Your Fingertips",
-        quote: "Unlike generic career advice platforms, Experience Book provides hands-on, practical insights from professionals who’ve walked the path before you."
+        quote: "Unlike generic career advice platforms, Experience Book provides hands-on, practical insights from professionals who&apos;ve walked the path before you."
       },
       {
         name: "Joseph McFall",
         role: "Entrepreneur & Public Speaker",
         image: "https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/joseph-mcfall.png",
         title: "Mentorship Made Accessible",
-        quote: "Experience Book is revolutionizing how people access mentorship. Whether you're switching careers or just starting out, this platform connects you with real experts."
+        quote: "Experience Book is revolutionizing how people access mentorship. Whether you&apos;re switching careers or just starting out, this platform connects you with real experts."
       }
     ];
   return (
