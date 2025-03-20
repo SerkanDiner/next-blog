@@ -69,8 +69,8 @@ export default function Header() {
           <Link href='/about' className={`text-gray-700 dark:text-white font-semibold ${path === '/about' ? 'underline' : ''}`}>
             About
           </Link>
-          <Link href='/projects' className={`text-gray-700 dark:text-white font-semibold ${path === '/projects' ? 'underline' : ''}`}>
-            Projects
+          <Link href='/profiles' className={`text-gray-700 dark:text-white font-semibold ${path === '/profiles' ? 'underline' : ''}`}>
+            Profiles
           </Link>
         </div>
 
@@ -117,9 +117,24 @@ export default function Header() {
           <Link href='/about' onClick={() => setIsMenuOpen(false)} className="text-gray-700 dark:text-white font-semibold text-lg">
             About
           </Link>
-          <Link href='/projects' onClick={() => setIsMenuOpen(false)} className="text-gray-700 dark:text-white font-semibold text-lg">
-            Projects
+          <Link href='/profiles' onClick={() => setIsMenuOpen(false)} className="text-gray-700 dark:text-white font-semibold text-lg">
+            Profiles
           </Link>
+          {/* ✅ Dark Mode Toggle (Only in Mobile Menu) */}
+          
+            
+            <Button
+              className="w-12 h-10"
+              color="gray"
+              pill
+              onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}
+            >
+              {theme === 'light' ? <FaSun /> : <FaMoon />}
+            </Button>
+          
+          
+
+
 
           {/* ✅ Sign In (Only in Mobile Menu) */}
           <SignedOut>
@@ -130,18 +145,7 @@ export default function Header() {
             </Link>
           </SignedOut>
 
-          {/* ✅ Dark Mode Toggle (Only in Mobile Menu) */}
-          <div className='flex justify-between items-center px-4 py-2 border-t border-gray-300 dark:border-gray-700 w-full'>
-            
-            <Button
-              className="w-12 h-10"
-              color="gray"
-              pill
-              onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}
-            >
-              {theme === 'light' ? <FaSun /> : <FaMoon />}
-            </Button>
-          </div>
+          
         </div>
       )}
     </Navbar>
