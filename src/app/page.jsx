@@ -55,18 +55,18 @@ export default async function Home() {
               Welcome to Experience Book
             </h1>
 
-            <p className="text-gray-600 text-base sm:text-lg dark:text-gray-300 leading-relaxed">
-              "Discover the power of real experiences. Learn from professionals who have navigated challenges, 
-              seized opportunities, and built successful careers. Their stories can guide you toward making 
-              informed, confident decisions for your own journey."
-            </p>
+              <p className="text-gray-600 text-base sm:text-lg dark:text-gray-300 leading-relaxed">
+                Discover the power of real experiences. Learn from professionals who have navigated challenges, 
+                seized opportunities, and built successful careers. Their stories can guide you toward making 
+                informed, confident decisions for your own journey.
+              </p>
 
-            <Link
-              href="/search?category=null"
-              className="text-sm sm:text-base text-orange-500 font-semibold hover:underline transition duration-300"
-            >
-              View All Experiences →
+
+            <Link href="/search?category=null"
+            className="text-sm sm:text-base text-orange-500 font-semibold hover:underline transition duration-300">
+            {`View All Experiences →`}
             </Link>
+
       </div>
       <div className='p-3 bg-white dark:bg-gray-900'>
 
