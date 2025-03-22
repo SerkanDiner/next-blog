@@ -30,7 +30,7 @@ export default function Search() {
       category: categoryFromUrl ?? '', // ✅ If missing, default to All Profiles
     }));
   
-    const fetchPosts = async () => {
+    const fetchPosts =  async () => {
       setLoading(true);
       
       const requestBody = {
