@@ -80,8 +80,8 @@ export default async function Home() {
       {/* Testimonials */}
       <TestimonialsCarousel testimonials={testimonials} />
 
-      {/* Recent Posts */}
       <div className="flex flex-col items-center text-center py-16 px-6 max-w-6xl mx-auto">
+        {/* Recent Posts Component */}
         <RecentPosts limit={4} />
       </div>
 
