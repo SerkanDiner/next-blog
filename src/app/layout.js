@@ -34,7 +34,7 @@ export default function RootLayout({ children }) {
 
 
 
-    <ClerkProvider>
+    <ClerkProvider dynamic>
     <html lang="en" suppressHydrationWarning>
       
       <body
