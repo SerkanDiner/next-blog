@@ -3,11 +3,21 @@ import { connect } from '../../../../lib/mongodb/mongoose.jsx';
 
 export const POST = async (req) => {
   await connect();
-  const data = await req.json();
+
+  let data;
+  try {
+    data = await req.json();
+  } catch (error) {
+    return new Response(JSON.stringify({ error: 'Invalid JSON' }), {
+      status: 400,
+    });
+  }
+
   try {
     const startIndex = parseInt(data.startIndex) || 0;
     const limit = parseInt(data.limit) || 9;
     const sortDirection = data.order === 'asc' ? 1 : -1;
+
     const posts = await Post.find({
       ...(data.userId && { userId: data.userId }),
       ...(data.category &&
@@ -28,22 +38,25 @@ export const POST = async (req) => {
 
     const totalPosts = await Post.countDocuments();
 
-    const now = new Date();
-
-    const oneMonthAgo = new Date(
-      now.getFullYear(),
-      now.getMonth() - 1,
-      now.getDate()
-    );
+    const oneMonthAgo = new Date();
+    oneMonthAgo.setMonth(oneMonthAgo.getMonth() - 1);
 
     const lastMonthPosts = await Post.countDocuments({
       createdAt: { $gte: oneMonthAgo },
     });
 
-    return new Response(JSON.stringify({ posts, totalPosts, lastMonthPosts }), {
-      status: 200,
-    });
+    return new Response(
+      JSON.stringify({ posts, totalPosts, lastMonthPosts }),
+      {
+        status: 200,
+        headers: { 'Content-Type': 'application/json' },
+      }
+    );
   } catch (error) {
-    console.log('Error getting posts:', error);
+    console.error('Error getting posts:', error);
+    return new Response(
+      JSON.stringify({ error: 'Failed to fetch posts' }),
+      { status: 500 }
+    );
   }
 };

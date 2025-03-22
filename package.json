@@ -14,6 +14,7 @@
     "@vercel/analytics": "^1.5.0",
     "@vercel/speed-insights": "^1.2.0",
     "bson": "^6.10.3",
+    "embla-carousel-react": "^8.5.2",
     "firebase": "^11.4.0",
     "flowbite-react": "^0.10.2",
     "mongodb": "^6.14.2",

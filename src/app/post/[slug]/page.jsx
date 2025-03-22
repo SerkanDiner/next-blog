@@ -1,61 +1,40 @@
-import CallToAction from '@/app/components/CallToAction';
-import RecentPosts from '@/app/components/RecentPosts';
-import { Button } from 'flowbite-react';
 import Link from 'next/link';
-export default async function PostPage({ params }) {
-  let post = null;
-  try {
-    const result = await fetch(process.env.URL + '/api/post/get', {
-      method: 'POST',
-      body: JSON.stringify({ slug: params.slug }),
-      cache: 'no-store',
-    });
-    const data = await result.json();
-    post = data.posts[0];
-  } catch (error) {
-    post = { title: 'Failed to load post' };
-  }
-  if (!post || !post.title === 'Failed to load post') {
-    return (
-      <main className='p-3 flex flex-col max-w-6xl mx-auto min-h-screen'>
-        <h2 className='text-3xl mt-10 p-3 text-center font-serif max-w-2xl mx-auto lg:text-4xl'>
-          Post not found
-        </h2>
-      </main>
-    );
-  }
+
+export default function PostCard({ post }) {
+  console.log("POST CONTENT TYPE:", typeof post?.content); // 🐞 DEBUG LINE
+
   return (
-    <main className='p-3 flex flex-col max-w-6xl mx-auto min-h-screen'>
-      <h1 className='text-3xl mt-10 p-3 text-center font-serif max-w-2xl mx-auto lg:text-4xl'>
-        {post && post.title}
-      </h1>
-      <Link
-        href={`/search?category=${post && post.category}`}
-        className='self-center mt-5'
-      >
-        <Button color='gray' pill size='xs'>
-          {post && post.category}
-        </Button>
+    <div className='group relative w-full border border-orange-400 hover:border-2 h-[400px] overflow-hidden rounded-lg sm:w-[430px] transition-all'>
+      <Link href={`/post/${post.slug}`}>
+        <img
+          src={post.image}
+          alt='post cover'
+          className='h-[260px] w-full object-cover group-hover:h-[200px] transition-all duration-300 z-20'
+        />
       </Link>
-      <img
-        src={post && post.image}
-        alt={post && post.title}
-        className='mt-10 p-3 max-h-[600px] w-full object-cover'
-      />
-      <div className='flex justify-between p-3 border-b border-slate-500 mx-auto w-full max-w-2xl text-xs'>
-        <span>{post && new Date(post.createdAt).toLocaleDateString()}</span>
-        <span className='italic'>
-          {post && (post?.content?.length / 1000).toFixed(0)} mins read
-        </span>
+      <div className='p-3 flex flex-col gap-2'>
+        <p className='text-lg font-semibold line-clamp-2'>{post.title}</p>
+        <span className='italic text-sm'>{post.category}</span>
+
+        {/* ✅ FIXED & SAFELY CHECKED HTML */}
+        {typeof post?.content === 'string' ? (
+          <div
+            className='text-sm text-gray-600 line-clamp-3'
+            dangerouslySetInnerHTML={{
+              __html: post.content.slice(0, 200) + '...',
+            }}
+          />
+        ) : (
+          <p className="text-sm text-red-500">Invalid content format</p>
+        )}
+
+        <Link
+          href={`/post/${post.slug}`}
+          className='z-10 group-hover:bottom-0 absolute bottom-[-200px] left-0 right-0 border border-orange-400 text-orange-400 hover:bg-orange-400 hover:text-white transition-all duration-300 text-center py-2 rounded-md !rounded-tl-none m-2'
+        >
+          See Profile
+        </Link>
       </div>
-      <div
-        className='p-3 max-w-2xl mx-auto w-full post-content'
-        dangerouslySetInnerHTML={{ __html: post?.content }}
-      ></div>
-      <div className='max-w-4xl mx-auto w-full'>
-        <CallToAction />
-      </div>
-      <RecentPosts limit={3} />
-    </main>
+    </div>
   );
 }
